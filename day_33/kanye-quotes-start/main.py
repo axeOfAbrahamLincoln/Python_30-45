@@ -4,6 +4,7 @@ import requests
 
 def get_quote():
     respond = requests.get("https://api.kanye.rest")
+    respond.raise_for_status()
     quote = respond.json()["quote"]
     canvas.itemconfig(quote_text, text=quote)
 
